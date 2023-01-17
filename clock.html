@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <script src="./jquery.js"></script>
+        <style>
+            #a1
+            {
+                color:red;
+                background-color:black;
+                height:300px;
+                width:500px;
+                display: inline-block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin:150px 300px;
+                font-size:53px;
+                border:10px groove whitesmoke;
+                position: absolute;
+                text-shadow: 2px 3px rgb(201, 78, 78);
+                /* text-shadow: rebeccapurple; */
+
+            }
+            #d1{
+                color:red;
+                background-color: aqua;
+                display:inline-block;
+                width:120px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size:53px;
+                margin-left:340px;
+                position: relative;
+                top:190px;
+            }
+            #dt{
+                color:red;
+                background-color:darkblue;
+                width:150px;
+                position: relative;
+                margin:360px 640px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="a1" onload="time()">
+        </div>
+        <div id="d1" onload="dy()"></div>
+        <div id="dt" onload="date()"></div>
+        <script>
+            function time()
+            {
+            let d=new Date();
+            let h=d.getHours()
+            let m=d.getMinutes();
+            let s=d.getSeconds();
+            // let day=d.getDay();
+            let time= h+' : '+m+' : '+s+'';
+                document.getElementById("a1").innerText=time;
+            }
+            time();
+
+            function t()
+            {
+            let da=new Date();
+            let day=da.getDay();
+                // document.getElementById("d1").innerText=day+"ok"; 
+                let a=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] ;
+                document.getElementById("d1").innerText=a[day];
+            }
+            t();
+
+            function date()
+            {
+                let d=new Date();
+                let p=d.getDate();
+                let m=d.getMonth();
+                let y=d.getFullYear();
+                console.log(p);
+                console.log(m);
+                console.log(y);
+                document.getElementById("dt").innerText=p+'-'+(m+1)+'-'+y;
+            }
+            date();
+        </script>
+    </body>
+</html>
